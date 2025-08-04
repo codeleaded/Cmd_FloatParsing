@@ -3,6 +3,7 @@
 int main(int argc, const char *argv[]){
     
     F64 d = -3.14159265358e1;
+    //F64 d = 0.0 / 0.0;
 
     char buffer1[128];
     memset(buffer1,0,sizeof(buffer1));
