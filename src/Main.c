@@ -17,13 +17,17 @@ int main(int argc, const char *argv[]){
     F64 p2 = F64_Parse_Ex(buffer2);
     printf("S: %s, S: %s, D: %lf, P: %lf, P: %lf\n",buffer1,buffer2,d,p1,p2);
     
-    //I64 n = 0xFFFFFFFFFFFFFFFFL;
-    //char* cstr = I64_Get_D(n);
-    //I64 p = I64_Parse(cstr);
-    //printf("S: %s, P: %ld, D: %ld, X: %lx, O: %lo\n",cstr,p,n,n,n);
+    
+    I64 n = 0xFFFFFFFFL;
+    char* cstrd = I64_Get_D(n);
+    char* cstrx = U64_Get_X((U64)n);
 
-    //if(cstr) free(cstr);
-    //cstr = NULL;
+    I64 pd = I64_Parse(cstrd);
+    I64 px = I64_Parse(cstrx);
+    printf("S: %s(%s), P: %ld(%ld), D: %ld, X: %lx, O: %lo\n",cstrd,cstrx,pd,px,n,n,n);
+
+    CStr_Free(&cstrd);
+    CStr_Free(&cstrx);
 
     return 0;
 }
